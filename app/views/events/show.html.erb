@@ -14,12 +14,16 @@
           </div>
 
           <% if current_user_can_edit?(@event) %>
-            <div class="flex buffer-top">
+            <div class="flex buffer-both">
               <%= button_to 'Изменить', edit_event_path(@event), method: :get, class: 'btn btn-primary' %>
               <%= button_to 'Удалить', event_path(@event), method: :delete,
                           data: { confirm: 'Вы точно хотите удалить событие?' }, class: 'btn btn-danger' %>
             </div>
           <% end %>
+        </div>
+
+        <div class="col-md-6">
+          <div class="event-map" id="map" style="min-height: 300px" data-address='<%= @event.address %>'></div>
         </div>
       </div>
     </div>
@@ -71,11 +75,4 @@
       <% end %>
     </div>
   </div>
-
-
-<!--  <div class="row">-->
-<!--    <div class="col-md">-->
-<!--      <div id="map" style="min-height: 300px" data-address='<%#= @event.address %>'></div>-->
-<!--    </div>-->
-<!--  </div>-->
 </div>
