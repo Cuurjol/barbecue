@@ -83,7 +83,7 @@ Rails.application.configure do
   # require 'syslog/logger'
   # config.logger = ActiveSupport::TaggedLogging.new(Syslog::Logger.new 'app-name')
 
-  if ENV["RAILS_LOG_TO_STDOUT"].present?
+  if ENV['RAILS_LOG_TO_STDOUT'].present?
     logger           = ActiveSupport::Logger.new(STDOUT)
     logger.formatter = config.log_formatter
     config.logger    = ActiveSupport::TaggedLogging.new(logger)
@@ -95,6 +95,8 @@ Rails.application.configure do
   config.action_mailer.default_url_options = { host: 'cuurjol-bbq.herokuapp.com' }
 
   config.action_mailer.perform_deliveries = true
+
+  config.action_mailer.default charset: 'utf-8'
 
   config.action_mailer.delivery_method = :smtp
 
