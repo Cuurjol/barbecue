@@ -63,6 +63,8 @@ Rails.application.configure do
 
   config.action_mailer.default_url_options = { host: 'localhost:3000' }
 
+  config.action_mailer.asset_host = 'http://localhost:3000'
+
   # отправка почты по протоколу SMTP
   config.action_mailer.delivery_method = :smtp
 
