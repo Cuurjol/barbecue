@@ -2,6 +2,7 @@
 ----
 
 <%= image_tag attachments['image.jpg'].url %>
+<%= link_to image_tag(@photo.photo.url), @photo.photo.url %></p>
 
 <%= t '.author' %>: <%= @photo.user.name %>
 
