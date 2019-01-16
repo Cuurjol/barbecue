@@ -15,7 +15,12 @@ class EventMailer < ApplicationMailer
   end
 
   def image(event, photo, email)
-    attachments.inline['image.jpg'] = File.read("#{Rails.root}/public#{photo.photo}")
+    if Rails.env.production?
+      attachments.inline['image.jpg'] = photo.photo
+    else
+      attachments.inline['image.jpg'] = File.read("#{Rails.root}/public#{photo.photo}")
+    end
+
     @photo = photo
     @event = event
 
