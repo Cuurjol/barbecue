@@ -1,8 +1,13 @@
 <h1><%= t '.title' %></h1>
-<p><%= image_tag attachments['image.jpg'].url %></p>
-<%= link_to image_tag(@photo.photo.url), @photo.photo.url %></p>
-<p><%= t '.author' %>: <strong><%= @photo.user.name %></strong></p>
 
+<% if Rails.env.production? %>
+  <%= image_tag(@photo.photo.url) %>
+  <%= link_to image_tag(@photo.photo.url), @photo.photo.url %></p>
+  <% else %>
+  <p><%= image_tag attachments['image.jpg'].url %></p>
+<% end %>
+
+<p><%= t '.author' %>: <strong><%= @photo.user.name %></strong></p>
 <hr/>
 
 <%= t '.event' %>
