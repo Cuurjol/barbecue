@@ -2,8 +2,8 @@
 ----
 
 <% if Rails.env.production? %>
+<!--  <%#= link_to image_tag(@photo.photo.url), @photo.photo.url %></p>-->
   <%= image_tag(@photo.photo.url) %>
-  <%= link_to image_tag(@photo.photo.url), @photo.photo.url %></p>
 <% else %>
   <p><%= image_tag attachments['image.jpg'].url %></p>
 <% end %>
