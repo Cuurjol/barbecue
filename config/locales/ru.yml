@@ -32,6 +32,11 @@ ru:
       photo:
         photo: 'Фотография'
 
+    errors:
+      models:
+        subscription:
+          email_belongs_user: "принадлежит зарегистрированному пользователю"
+
   # Перевод сообщений, которые отправляет контроллер
   controllers:
     events:
