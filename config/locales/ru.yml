@@ -35,7 +35,9 @@ ru:
     errors:
       models:
         subscription:
-          email_belongs_user: "принадлежит зарегистрированному пользователю"
+          attributes:
+            user_email:
+              email_belongs_user: "принадлежит зарегистрированному пользователю"
 
   # Перевод сообщений, которые отправляет контроллер
   controllers:
