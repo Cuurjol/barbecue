@@ -29,7 +29,7 @@ class Subscription < ApplicationRecord
   private
 
   def email_belongs_user?
-    if self.user.nil? && User.all.map(&:email).include?(user_email)
+    if user.nil? && User.exists?(email: user_email)
       errors.add(:user_email, :email_belongs_user)
     end
   end
