@@ -17,7 +17,7 @@ bundle exec rake db:migrate
 
 And it is also necessary to set up variable environments for working:
 
-* Amazon S3 Storage
+* Amazon S3 Storage (for production environment)
 
 ```
 S3_ACCESS_KEY
@@ -25,12 +25,21 @@ S3_BUCKET_NAME
 S3_BUCKET_REGION
 ```
 
-* SendGrid
+* SendGrid (for production environment)
 
 ```
 SENDGRID_USERNAME
 SENDGRID_PASSWORD
 ```
+
+* For development environment I used a gem [`figaro`](https://github.com/laserlemon/figaro). Then I added the following variable environments in `config/application.yml`
+
+```
+GMAIL_USERNAME
+GMAIL_PASSWORD
+```
+
+**Important:** I used a mail from Google for creating user notifications.
 
 Then, run the local server:
 ```
