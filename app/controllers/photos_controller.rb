@@ -12,6 +12,8 @@ class PhotosController < ApplicationController
       notify_subscribers(@event, @new_photo)
       redirect_to(@event, notice: I18n.t('controllers.photos.created'))
     else
+      # https://goo.gl/ake5rB - stackoverflow, last comment
+      # https://goo.gl/Yjpy1Z - Adding flash message capability to your render calls in Rails
       render('events/show', alert: I18n.t('controllers.photos.error'))
     end
   end

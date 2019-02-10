@@ -16,6 +16,7 @@ gem 'twitter-bootstrap-rails'
 gem 'rails-i18n'
 
 gem 'carrierwave'
+gem 'carrierwave-i18n'
 gem 'rmagick'
 
 gem 'fog-aws'

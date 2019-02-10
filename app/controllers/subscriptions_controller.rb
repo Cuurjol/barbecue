@@ -15,6 +15,8 @@ class SubscriptionsController < ApplicationController
       EventMailer.subscription(@event, @new_subscription).deliver_now
       redirect_to(@event, notice: I18n.t('controllers.subscriptions.created'))
     else
+      # https://goo.gl/ake5rB - stackoverflow, last comment
+      # https://goo.gl/Yjpy1Z - Adding flash message capability to your render calls in Rails
       render('events/show', alert: I18n.t('controllers.subscriptions.error'))
     end
   end
