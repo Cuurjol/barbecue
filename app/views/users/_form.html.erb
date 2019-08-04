@@ -1,23 +1,38 @@
-<%= form_for @user, html: {multipart: true} do |f| %>
-  <%= render partial: 'partials/form_errors', locals: {model: @user} %>
-
-  <div class="form-group">
-    <%= f.label :name %>
-    <%= f.text_field :name, class: 'form-control' %>
+<%= form_for @user, html: { multipart: true, class: 'panel panel-default' } do |f| %>
+  <div class="panel-heading">
+    <h1 class="panel-title"><strong><%= t('.title') %></strong></h1>
   </div>
 
-  <div class="form-group">
-    <%= f.label :email %>
-    <%= f.text_field :email, class: 'form-control' %>
+  <div class="panel-body">
+    <div class="form-group <%= "has-error" if f.errors_on?(:name) %>">
+      <%= f.label :name %>
+      <%= f.text_field :name, class: 'form-control' %>
+      <%= f.error_span(:name) %>
+    </div>
+
+    <div class="form-group <%= "has-error" if f.errors_on?(:email) %>">
+      <%= f.label :email %>
+      <%= f.text_field :email, class: 'form-control' %>
+      <%= f.error_span(:email) %>
+    </div>
+
+    <div class="form-group <%= "has-error" if f.errors_on?(:avatar) %>">
+      <%= f.label :avatar %>
+      <p><%= image_tag(@user.avatar.thumb.url) if @user.avatar? %></p>
+      <%= f.file_field :avatar %>
+      <%= f.error_span(:avatar) %>
+    </div>
+
+    <div class="actions">
+      <%= f.submit t('.buttons.save'), class: 'btn btn-primary' %>
+      <%= t('.or_label') %>
+      <%= link_to t('.links.back'), :back %>
+    </div>
   </div>
 
-  <div class="form-group">
-    <%= f.label :avatar %>
-    <p><%= image_tag(@user.avatar.thumb.url) if @user.avatar? %></p>
-    <%= f.file_field :avatar %>
-  </div>
-
-  <div class="actions">
-    <%= f.submit 'Сохранить', class: 'btn btn-primary' %> или <%= link_to 'вернуться', :back %>
+  <div class="panel-footer">
+    <%= link_to t('.links.change_password'), edit_user_registration_path %><br>
+    <%= link_to t('.links.destroy_page'), registration_path(:user),
+                data: { confirm: t('.destroy_confirm') }, method: :delete %>
   </div>
 <% end %>

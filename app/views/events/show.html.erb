@@ -15,9 +15,9 @@
 
           <% if current_user_can_edit?(@event) %>
             <div class="flex buffer-both">
-              <%= button_to 'Изменить', edit_event_path(@event), method: :get, class: 'btn btn-primary' %>
-              <%= button_to 'Удалить', event_path(@event), method: :delete,
-                          data: { confirm: 'Вы точно хотите удалить событие?' }, class: 'btn btn-danger' %>
+              <%= button_to t('.buttons.change'), edit_event_path(@event), method: :get, class: 'btn btn-primary' %>
+              <%= button_to t('.buttons.destroy'), event_path(@event), method: :delete,
+                          data: { confirm: t('.destroy_confirm') }, class: 'btn btn-danger' %>
             </div>
           <% end %>
         </div>
@@ -54,11 +54,11 @@
 
     <div class="col-md-4">
       <div class="event-owner">
-        <h4>Зовет:</h4>
+        <h4><%= t('.owner') %></h4>
         <p><%= render partial: 'users/user', object: @event.user %></p>
       </div>
       <div class="event-subscriptions">
-        <h4>Пойдут:</h4>
+        <h4><%= t('.participants') %></h4>
         <div>
           <p>
             <%= render partial: 'subscriptions/subscription', collection: @event.subscriptions.except(@new_subscription) %>
@@ -67,7 +67,7 @@
       </div>
       <% unless event_has_current_subscriber?(@event) || user_signed_in? && current_user == @event.user %>
         <div class="event-subscription-form">
-          <h4>Я пойду:</h4>
+          <h4><%= t('.join') %></h4>
           <div>
             <%= render partial: 'subscriptions/form', locals: {
                 subscription: @new_subscription || @event.subscriptions.build

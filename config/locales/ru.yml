@@ -21,11 +21,11 @@ ru:
         description: 'Описание'
         pincode: 'Пинкод доступа'
       comment:
-        user_name: 'Ваше имя'
+        user_name: 'Имя'
         body: 'Комментарий'
       subscription:
-        user_name: 'Ваше имя'
-        user_email: 'Ваш email'
+        user_name: 'Имя'
+        user_email: 'Email'
       photo:
         photo: 'Фотография'
 
@@ -40,7 +40,7 @@ ru:
     events:
       created: 'Вы создали новое мероприятие'
       updated: 'Вы обновили мероприятие'
-      destroyed: 'Вы удалили мероприятие :('
+      destroyed: 'Вы удалили мероприятие'
       wrong_pincode: 'Неверный пинкод!'
     users:
       updated: 'Вы обновили свой профиль'
@@ -49,9 +49,9 @@ ru:
       created: 'Ваш комментарий добавлен'
       error: 'Ошибка с комментарием'
     subscriptions:
-      created: 'Вы подписаны на это событие'
+      created: 'Вы подписались на это событие'
       destroyed: 'Участник отписан'
-      error: 'Подписка/отписка не сработала'
+      error: 'Подписка/Отписка не сработала'
       current_user_error: 'Автор не может сделать подписку на своё событие'
     photos:
       error: 'Что-то не так с фотографией'
@@ -62,24 +62,140 @@ ru:
     name: 'Шашлыки'
     company: 'Sweet Home Inc.'
 
+  layouts:
+    user_menu:
+      sign_up: 'Зарегистрироваться'
+      sign_in: 'Войти'
+      sign_out: 'Выйти'
+      profile: 'Профиль'
+
+  devise:
+    passwords:
+      edit:
+        title: 'Сброс пароля'
+        placeholders:
+          new_password: 'Ваш новый пароль'
+          new_password_confirmation: 'Повторите новый пароль'
+        buttons:
+          change: 'Восстановить пароль'
+      new:
+        title: 'Забыли пароль?'
+        tip: 'Если вы забыли пароль, введите свой Email, указанный при регистрации. Вам будет выслана инструкция по сбросу пароля.'
+        placeholders:
+          email: 'Ваш email'
+        buttons:
+          continue: 'Отправить инструкцию'
+    registrations:
+      edit:
+        title: 'Смена пароля пользователя'
+        placeholders:
+          new_password: 'Ваш новый пароль'
+          new_password_confirmation: 'Повторите новый пароль'
+          current_password: 'Ваш текущий пароль'
+        tip: 'Введите текущий пароль для подтверждения смены пароля'
+        buttons:
+          change: 'Изменить пароль'
+        links:
+          profile: 'Вернуться к профилю'
+      new:
+        title: 'Регистрация нового пользователя'
+        placeholders:
+          email: 'Ваш email'
+          password: 'Ваш пароль'
+          password_confirmation: 'Повторите пароль'
+        buttons:
+          sign_up: 'Зарегистрироваться'
+    sessions:
+      new:
+        title: 'Авторизация пользователя'
+        placeholders:
+          email: 'Ваш email'
+          password: 'Ваш пароль'
+        buttons:
+          sign_in: 'Войти'
+    shared:
+      links:
+        sign_up: 'Зарегистрироваться'
+        sign_in: 'Войти'
+        forgot_password: 'Забыли пароль?'
+
+  users:
+    show:
+      organized: 'Организовал:'
+      not_organized: 'Пользователь пока не организовал ни одного события'
+      buttons:
+        edit: 'Редактировать профиль'
+    form:
+      title: 'Редактирование профиля'
+      links:
+        back: 'вернуться'
+        change_password: 'Сменить пароль'
+        destroy_page: 'Удалить страницу'
+      destroy_confirm: 'Вы уверены, что хотите удалить свою страницу?'
+      or_label: ' или '
+      buttons:
+        save: 'Сохранить'
+
+  events:
+    index:
+      title: 'События'
+      buttons:
+        create: 'Создать событие'
+    new:
+      title: 'Новое событие'
+    edit:
+      title: 'Редактирование события'
+    show:
+      destroy_confirm: 'Вы уверены, что хотите удалить это событие?'
+      owner: 'Организатор:'
+      participants: 'Участники:'
+      join: 'Я пойду:'
+      buttons:
+        change: 'Изменить'
+        destroy: 'Удалить'
+    form:
+      buttons:
+        save: 'Сохранить'
+      links:
+        event_back: 'Вернуться к событию'
+        root_back: 'Вернуться на главную страницу'
+    password_form:
+      title: 'Доступ только по пин-коду'
+      label: 'Пин-код'
+      buttons:
+        check: 'Проверить'
+      links:
+        main: 'На главную'
+
   comments:
     comment:
       destroy_confirm: 'Вы уверены, что хотите удалить этот комментарий?'
+    form:
+      buttons:
+        comment: 'Комментировать'
 
   subscriptions:
     subscription:
       destroy_confirm: 'Вы уверены, что хотите удалить эту подписку?'
+    form:
+      buttons:
+        subscribe: 'Подписаться'
 
   photos:
     photo:
       destroy_confirm: 'Вы уверены, что хотите удалить эту фотографию?'
+      author: 'Добавил %{user_link}&nbsp;&nbsp;&nbsp;%{delete_link}'
+      album_label: 'Фотография %1 из %2'
+    form:
+      buttons:
+        download: 'Загрузить'
 
   event_mailer:
     comment:
       title: 'Новый комментарий'
       author: 'Автор'
       event: 'Событие'
-      datetime: 'Состоится'
+      datetime: 'Дата и время'
       owner: 'Организатор'
     subscription:
       title: 'Новая подписка'
@@ -87,21 +203,21 @@ ru:
       email: 'Email'
       author: 'Автор'
       event: 'Событие'
-      datetime: 'Состоится'
+      datetime: 'Дата и время'
       owner: 'Организатор'
     image:
       title: 'Новая фотография'
       author: 'Автор'
       event: 'Событие'
-      datetime: 'Состоится'
+      datetime: 'Дата и время'
       owner: 'Организатор'
 
   errors_count:
-    one: '%{count} ошибка'
-    few: '%{count} ошибки'
-    many: '%{count} ошибок'
+    one: 'В вашей форме %{count} ошибка'
+    few: 'В вашей форме %{count} ошибки'
+    many: 'В вашей форме %{count} ошибок'
 
   characters_count:
-    one: '%{count} символ'
-    few: '%{count} символа'
-    many: '%{count} символов'
+    one: 'Минимум %{count} символ'
+    few: 'Минимум %{count} символа'
+    many: 'Минимум %{count} символов'

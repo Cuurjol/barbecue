@@ -2,6 +2,7 @@
 //= require rails-ujs
 //= require twitter/bootstrap
 //= require twitter/bootstrap/alert
+//= require i18n/translations
 
 $(function () {
   // https://stackoverflow.com/questions/44433953/jumping-scrollbar-after-auto-expanding-textarea

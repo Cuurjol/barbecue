@@ -12,6 +12,6 @@ $(function(){
     fadeDuration: 300,
     imageFadeDuration: 300,
     wrapAround: true,
-    albumLabel: 'Фотография %1 из %2'
+    albumLabel: I18n.t('photos.photo.album_label')
   });
 });
