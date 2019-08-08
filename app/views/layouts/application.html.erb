@@ -19,12 +19,19 @@
     <%= render 'layouts/js_locales_info' %>
   </head>
   <body>
-    <div class="navbar navbar-default navbar-static-top">
+    <nav class="navbar navbar-default navbar-static-top" role="navigation">
       <div class="container">
-        <%= link_to t('app.name'), root_path, class: 'navbar-brand' %>
+        <div class="navbar-header">
+          <%= link_to t('app.name'), root_path, class: 'navbar-brand' %>
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse-x" aria-expanded="false">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+        </div>
         <%= render partial: 'layouts/user_menu' %>
       </div>
-    </div>
+    </nav>
 
     <div class="container">
       <div class="row">
