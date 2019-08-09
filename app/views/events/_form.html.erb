@@ -1,6 +1,6 @@
 <%= form_for(@event, html: { class: 'panel panel-default' }) do |f| %>
   <div class="panel-heading">
-    <h1 class="panel-title"><strong><%= event_title_form %></strong></h1>
+    <h1 class="panel-title"><strong><%= event_title_form(@event) %></strong></h1>
   </div>
 
   <div class="panel-body">

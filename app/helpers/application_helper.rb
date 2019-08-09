@@ -39,19 +39,12 @@ module ApplicationHelper
     content_tag('span', '', class: "fa fa-#{icon_class}")
   end
 
-  def event_title_form
-    if request.original_url == new_event_url
-      t('events.new.title')
-    else
-      t('events.edit.title')
-    end
+  def event_title_form(event)
+    event.new_record? ? t('events.new.title') : t('events.edit.title')
   end
 
   def event_back_link(event)
-    if request.original_url == new_event_url
-      link_to(t('events.form.links.root_back'), root_path)
-    else
+    event.new_record? ? link_to(t('events.form.links.root_back'), root_path) :
       link_to(t('events.form.links.event_back'), event_path(event))
-    end
   end
 end
