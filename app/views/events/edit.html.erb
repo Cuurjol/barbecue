@@ -1,3 +1,11 @@
+<% content_for :locale_links do  %>
+  <p>
+    <%= link_to_unless I18n.locale == :en, t('app.language.english'), edit_event_path(@event, locale: :en) %>
+    |
+    <%= link_to_unless I18n.locale == :ru, t('app.language.russian'), edit_event_path(@event, locale: :ru) %>
+  </p>
+<% end %>
+
 <div class="row">
   <div class="col-md-6">
     <%= render 'form' %>

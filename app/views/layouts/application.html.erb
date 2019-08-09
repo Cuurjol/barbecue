@@ -41,11 +41,15 @@
         </div>
       </div>
       <footer class="buffer-top">
-        <p>
-          <%= link_to_unless I18n.locale == :en, t('app.language.english'), locale: :en %>
-          |
-          <%= link_to_unless I18n.locale == :ru, t('app.language.russian'), locale: :ru %>
-        </p>
+        <% if request.request_method == "GET" %>
+          <p>
+            <%= link_to_unless I18n.locale == :en, t('app.language.english'), locale: :en %>
+            |
+            <%= link_to_unless I18n.locale == :ru, t('app.language.russian'), locale: :ru %>
+          </p>
+        <% else %>
+          <%= yield(:locale_links) %>
+        <% end %>
         <p>&copy; <%= t('app.company') %> <%= Time.now.year %></p>
       </footer>
     </div>
