@@ -61,6 +61,9 @@ en:
   app:
     name: 'Barbecue'
     company: 'Sweet Home Inc.'
+    language:
+      english: 'English'
+      russian: 'Russian'
 
   layouts:
     user_menu:

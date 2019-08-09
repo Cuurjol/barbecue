@@ -1,16 +1,32 @@
 Rails.application.routes.draw do
-  devise_for :users, controllers: { registrations: :registrations }
+  # devise_for :users, controllers: { registrations: :registrations }
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 
-  root 'events#index'
+  # root 'events#index'
+  #
+  # resources :events do
+  #   resources :comments, only: [:create, :destroy]
+  #   resources :subscriptions, only: [:create, :destroy]
+  #   resources :photos, only: [:create, :destroy]
+  #
+  #   post :show, on: :member
+  # end
+  #
+  # resources :users, only: [:show, :edit, :update]
 
-  resources :events do
-    resources :comments, only: [:create, :destroy]
-    resources :subscriptions, only: [:create, :destroy]
-    resources :photos, only: [:create, :destroy]
+  scope "(:locale)", locale: /#{I18n.available_locales.join("|")}/ do
+    devise_for :users, controllers: { registrations: :registrations }
 
-    post :show, on: :member
+    root 'events#index'
+
+    resources :events do
+      resources :comments, only: [:create, :destroy]
+      resources :subscriptions, only: [:create, :destroy]
+      resources :photos, only: [:create, :destroy]
+
+      post :show, on: :member
+    end
+
+    resources :users, only: [:show, :edit, :update]
   end
-
-  resources :users, only: [:show, :edit, :update]
 end
