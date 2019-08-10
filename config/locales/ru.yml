@@ -61,9 +61,9 @@ ru:
   app:
     name: 'Шашлыки'
     company: 'Sweet Home Inc.'
-    language:
-      english: 'Английский'
-      russian: 'Русский'
+    locale:
+      en: 'Английский'
+      ru: 'Русский'
 
   layouts:
     user_menu:

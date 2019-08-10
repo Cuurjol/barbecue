@@ -43,9 +43,14 @@
       <footer class="buffer-top">
         <% if request.request_method == "GET" %>
           <p>
-            <%= link_to_unless I18n.locale == :en, t('app.language.english'), locale: :en %>
-            |
-            <%= link_to_unless I18n.locale == :ru, t('app.language.russian'), locale: :ru %>
+            <% I18n.available_locales.each_with_index do |locale, index| %>
+              <% if index.zero? %>
+                <%= link_to_unless I18n.locale == locale, t("app.locale.#{locale}"), locale: locale %>
+              <% else %>
+                |
+                <%= link_to_unless I18n.locale == locale, t("app.locale.#{locale}"), locale: locale %>
+              <% end %>
+            <% end %>
           </p>
         <% else %>
           <%= yield(:locale_links) %>

@@ -7,9 +7,14 @@
 
 <% content_for :locale_links do  %>
   <p>
-    <%= link_to_unless I18n.locale == :en, t('app.language.english'), edit_user_registration_path(locale: :en) %>
-    |
-    <%= link_to_unless I18n.locale == :ru, t('app.language.russian'), edit_user_registration_path(locale: :ru) %>
+    <% I18n.available_locales.each_with_index do |locale, index| %>
+      <% if index.zero? %>
+        <%= link_to_unless I18n.locale == locale, t("app.locale.#{locale}"), edit_user_registration_path(locale: locale) %>
+      <% else %>
+        |
+        <%= link_to_unless I18n.locale == locale, t("app.locale.#{locale}"), edit_user_registration_path(locale: locale) %>
+      <% end %>
+    <% end %>
   </p>
 <% end %>
 
