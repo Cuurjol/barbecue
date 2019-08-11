@@ -12,11 +12,17 @@
     <%= stylesheet_link_tag 'https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.1/css/lightbox.css', media: 'all' %>
 
     <%= javascript_include_tag 'application' %>
-    <%= javascript_include_tag 'https://api-maps.yandex.ru/2.1/?apikey=ee2acc09-6407-4373-a792-3e29f8efb449&lang=ru_RU' %>
-    <%= javascript_include_tag 'maps' %>
+    <%#= javascript_include_tag 'https://api-maps.yandex.ru/2.1/?apikey=ee2acc09-6407-4373-a792-3e29f8efb449&lang=ru_RU' %>
+    <%#= javascript_include_tag 'yandex_maps' %>
     <%= javascript_include_tag 'https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.1/js/lightbox.js' %>
     <%= javascript_include_tag 'lightbox2_options' %>
     <%= render 'layouts/js_locales_info' %>
+
+
+
+    <script src='https://api.mapbox.com/mapbox-gl-js/v1.2.0/mapbox-gl.js'></script>
+    <link href='https://api.mapbox.com/mapbox-gl-js/v1.2.0/mapbox-gl.css' rel='stylesheet' />
+
   </head>
   <body>
     <nav class="navbar navbar-default navbar-static-top" role="navigation">
