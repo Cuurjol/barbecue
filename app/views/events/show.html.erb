@@ -37,17 +37,13 @@
 
         <div class="col-md-6">
           <div class="event-map" id="map" data-address='<%= @event.address %>'>
-            <% if I18n.locale == :ru %>
-              <% attribution_link = link_to('Яндекс карты', "https://yandex.ru/maps/?text=#{@event.address}") %>
-            <% else %>
-              <% attribution_link = link_to('Google maps', "https://www.google.com/maps/search/?api=1&query=#{@event.address}") %>
+            <% if I18n.locale == :en %>
+              <%= map(center: { latlng: [@event.latitude, @event.longitude], zoom: 14 },
+                      markers: [{ latlng: [@event.latitude, @event.longitude], popup: @event.address }],
+                      attribution: "Map data &copy; #{link_to('OpenStreetMap', 'https://www.openstreetmap.org')} contributors",
+                      tile_layer: 'http://{s}.tile.osm.org/{z}/{x}/{y}.png',
+                      max_zoom: 18) %>
             <% end %>
-
-            <%= map(center: { latlng: [@event.latitude, @event.longitude], zoom: 14 },
-                    markers: [{ latlng: [@event.latitude, @event.longitude], popup: @event.address }],
-                    attribution: attribution_link,
-                    tile_layer: 'https://maps.heigit.org/openmapsurfer/tiles/roads/webmercator/{z}/{x}/{y}.png',
-                    max_zoom: 18) %>
           </div>
         </div>
       </div>
