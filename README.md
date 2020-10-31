@@ -10,9 +10,25 @@ Application was created on `Ruby (v2.5.1)` and `Ruby on Rails (v5.2.2)`.
 ## Installation and running
 
 Before running the application, you need to install all the necessary gems and prepare the database. In order to do this, you need to run the following comands in the terminal:
+
+* For production environment
+
 ```
 bundle install
 bundle exec rake db:migrate
+```
+
+* For development environment
+
+```
+# install rmagic lib
+sudo apt-get install libmagickwand-dev
+
+# install sqlite3
+sudo apt-get install sqlite3 libsqlite3-dev
+
+bundle install --without production
+bundle exec rake db:setup
 ```
 
 And it is also necessary to set up variable environments for working:
