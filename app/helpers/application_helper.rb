@@ -44,7 +44,10 @@ module ApplicationHelper
   end
 
   def event_back_link(event)
-    event.new_record? ? link_to(t('events.form.links.root_back'), root_path) :
+    if event.new_record?
+      link_to(t('events.form.links.root_back'), root_path)
+    else
       link_to(t('events.form.links.event_back'), event_path(event))
+    end
   end
 end

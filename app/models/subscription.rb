@@ -29,8 +29,6 @@ class Subscription < ApplicationRecord
   private
 
   def email_belongs_user?
-    if user.nil? && User.exists?(email: user_email)
-      errors.add(:user_email, :email_belongs_user)
-    end
+    errors.add(:user_email, :email_belongs_user) if user.nil? && User.exists?(email: user_email)
   end
 end

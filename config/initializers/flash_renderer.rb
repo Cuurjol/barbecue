@@ -3,17 +3,9 @@ module ActionController
     def render(*args)
       options = args.last.is_a?(Hash) ? args.last : {}
 
-      if alert = options.delete(:alert)
-        flash.now[:alert] = alert
-      end
-
-      if notice = options.delete(:notice)
-        flash.now[:notice] = notice
-      end
-
-      if other = options.delete(:flash)
-        flash.update(other)
-      end
+      flash.now[:alert] = options.delete(:alert) if options[:alert]
+      flash.now[:notice] = options.delete(:notice) if options[:notice]
+      flash.update(options.delete(:flash)) if options[:flash]
 
       super(*args)
     end

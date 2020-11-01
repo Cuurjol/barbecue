@@ -12,6 +12,6 @@ Rails.application.config.assets.paths << Rails.root.join('node_modules')
 # application.js, application.css, and all non-JS/CSS in the app/assets
 # folder are already added.
 # Rails.application.config.assets.precompile += %w( admin.js admin.css )
-Rails.application.config.assets.precompile += %w(application.js)
-Rails.application.config.assets.precompile += %w(yandex_maps.js)
-Rails.application.config.assets.precompile += %w(lightbox2_options.js)
+Rails.application.config.assets.precompile += %w[application.js]
+Rails.application.config.assets.precompile += %w[yandex_maps.js]
+Rails.application.config.assets.precompile += %w[lightbox2_options.js]

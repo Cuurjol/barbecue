@@ -5,10 +5,7 @@ class ApplicationController < ActionController::Base
   helper_method :current_user_can_edit?, :event_has_current_subscriber?
 
   def configure_permitted_parameters
-    devise_parameter_sanitizer.permit(
-        :account_update,
-        keys: [:password, :password_confirmation, :current_password]
-    )
+    devise_parameter_sanitizer.permit(:account_update, keys: %i[password password_confirmation current_password])
   end
 
   def current_user_can_edit?(model)
